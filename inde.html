@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title id="title">Calculator</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="manifest" href="manifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> 
+	<link rel="apple-touch-icon" sizes="1024x1024" href="assets/images/calc512x512.png">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+	<meta name="theme-color" content="#000000">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="google" value="notranslate">
+	<!-- <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png"> -->
+	<link id="style" rel="stylesheet" href="assets/css/stylecalc.css">
+	<link id="root" rel="stylesheet" href="">
+</head>
+<body id="body">
+	<div class="calc-container">
+		<div class="secret">
+			<div class="white-mode" ontouchstart=""></div>
+			<div class="doble-tap" ontouchstart=""></div>
+		</div>
+		<div class="display" translate="no"><span translate="no">0</span></div>
+		<div class="android-bar d-none" translate="no">
+			<div>√</div>
+			<div>π</div>
+			<div>^</div>
+			<div>!</div>
+			<div>º</div>
+		</div>
+		<div id="divButtons" class="botones-container" ontouchstart="">
+			<div class="button gris ac btn" ontouchstart="" translate="no" data-value="AC">AC</div>
+			<div class="button gris inv btn" ontouchstart="" translate="no" data-value="inv">
+				<!-- Invert Sign -->
+				<svg id="invbtn" data-value="inv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.47 90.75" class="inv-width btn"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><polygon class="cls-1 btn" points="72.11 0 14.38 90.75 27.08 90.75 84.69 0 72.11 0"/><polygon class="cls-1 btn" points="15.86 38.8 24.23 38.8 24.23 23.85 40.13 23.85 40.13 15.45 24.23 15.45 24.23 .49 15.86 .49 15.86 15.45 0 15.45 0 23.85 15.86 23.85 15.86 38.8"/><rect class="cls-1 btn" x="59.35" y="63.9" width="40.13" height="8.5"/></g></svg>
+				<!-- Invert sign + -->
+				<svg id="invsum" data-value="inv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.48 90.75" class="inv-width btn d-none"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><polygon class="cls-1 btn" points="72.11 0 14.38 90.75 27.08 90.75 84.69 0 72.11 0"/><polygon class="cls-1 btn" points="15.86 38.8 24.23 38.8 24.23 23.85 40.13 23.85 40.13 15.45 24.23 15.45 24.23 .49 15.86 .49 15.86 15.45 0 15.45 0 23.85 15.86 23.85 15.86 38.8"/><rect class="cls-1 btn" x="59.35" y="63.9" width="40.13" height="8.5"/><circle class="cls-1 btn" cx="19.85" cy="52.07" r="5"/></g></svg>
+				<!-- Invert sign - -->
+				<svg id="invres" data-value="inv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.48 90.75" class="inv-width btn d-none"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><circle class="cls-1 btn" cx="79.85" cy="34.07" r="5"/><polygon class="cls-1 btn" points="72.11 0 14.38 90.75 27.08 90.75 84.69 0 72.11 0"/><polygon class="cls-1 btn" points="15.86 38.8 24.23 38.8 24.23 23.85 40.13 23.85 40.13 15.45 24.23 15.45 24.23 .49 15.86 .49 15.86 15.45 0 15.45 0 23.85 15.86 23.85 15.86 38.8"/><rect class="cls-1 btn" x="59.35" y="63.9" width="40.13" height="8.5"/></g></svg>
+			</div>
+			<div class="button gris porcent btn" ontouchstart="" translate="no" data-value="por">
+				<!-- Porcent Sign -->
+				<svg data-value="por" id="desactivo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.99 92.39" class="inv-width btn"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><path class="cls-1 btn" data-value="por" d="M0,23.46v-.06C0,8.99,7.61,0,20.13,0s20,8.99,20,23.4v.06c0,14.4-7.55,23.4-20,23.4S0,37.86,0,23.46ZM28.55,23.46v-.06c0-8.93-3.02-13.96-8.43-13.96s-8.55,5.03-8.55,13.96v.06c0,8.93,3.08,13.96,8.55,13.96s8.43-5.03,8.43-13.96ZM14.84,91.57L72.58.82h12.58L27.55,91.57h-12.71ZM59.87,68.93v-.06c0-14.34,7.61-23.33,20.06-23.33s20.06,8.99,20.06,23.33v.06c0,14.47-7.61,23.46-20.06,23.46s-20.06-8.99-20.06-23.46ZM88.43,68.99v-.06c0-8.93-3.08-13.96-8.49-13.96s-8.55,5.03-8.55,13.96v.06c0,8.93,3.08,13.96,8.55,13.96s8.49-5.03,8.49-13.96Z"/></g></svg>
+				<!-- Porcent Sign 1 -->
+				<svg data-value="por" id="activeOne" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.99 92.39" class="inv-width d-none btn"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><path class="cls-1 btn" data-value="por" d="M79.93,45.54c-12.45,0-20.06,8.99-20.06,23.33v.06c0,14.47,7.61,23.46,20.06,23.46s20.06-8.99,20.06-23.46v-.06c0-14.34-7.61-23.33-20.06-23.33ZM88.43,68.99c0,8.93-3.02,13.96-8.49,13.96s-8.55-5.03-8.55-13.96v-.06c0-8.93,3.14-13.96,8.55-13.96s8.49,5.03,8.49,13.96v.06Z"/><polygon class="cls-1 btn" data-value="por" points="72.58 .82 14.84 91.57 14.85 91.57 27.55 91.57 85.16 .82 72.58 .82"/><path class="cls-1 btn" data-value="por" d="M40.13,23.46v-.06C40.13,8.99,32.65,0,20.13,0S0,8.99,0,23.4v.06c0,14.4,7.68,23.4,20.13,23.4s20-9,20-23.4ZM11.57,23.46v-.06c0-8.93,3.14-13.96,8.55-13.96s8.43,5.03,8.43,13.96v.06c0,8.93-2.96,13.96-8.43,13.96s-8.55-5.03-8.55-13.96Z"/><path class="cls-1 btn" data-value="por" d="M20.09,17.55c-2.27,0-3.59,2.11-3.59,5.86v.03c0,3.75,1.29,5.86,3.59,5.86s3.54-2.11,3.54-5.86v-.03c0-3.75-1.27-5.86-3.54-5.86Z"/></g></svg>
+				<!-- Porcent Sign 2-->
+				<svg data-value="por" id="activeTwo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.99 92.39" class="inv-width d-none btn"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><path class="cls-1 btn" data-value="por" d="M40.13,23.46v-.06C40.13,8.99,32.65,0,20.13,0S0,8.99,0,23.4v.06c0,14.4,7.68,23.4,20.13,23.4s20-9,20-23.4ZM11.57,23.46v-.06c0-8.93,3.14-13.96,8.55-13.96s8.43,5.03,8.43,13.96v.06c0,8.93-2.96,13.96-8.43,13.96s-8.55-5.03-8.55-13.96Z"/><path class="cls-1 btn" data-value="por" d="M79.93,45.54c-12.45,0-20.06,8.99-20.06,23.33v.06c0,14.47,7.61,23.46,20.06,23.46s20.06-8.99,20.06-23.46v-.06c0-14.34-7.61-23.33-20.06-23.33ZM88.43,68.99c0,8.93-3.02,13.96-8.49,13.96s-8.55-5.03-8.55-13.96v-.06c0-8.93,3.14-13.96,8.55-13.96s8.49,5.03,8.49,13.96v.06Z"/><polygon class="cls-1 btn" data-value="por" points="72.58 .82 14.84 91.57 14.85 91.57 27.55 91.57 85.16 .82 72.58 .82"/><path class="cls-1 btn" data-value="por" d="M79.41,63.09c-2.27,0-3.59,2.11-3.59,5.86v.03c0,3.75,1.29,5.86,3.59,5.86s3.54-2.11,3.54-5.86v-.03c0-3.75-1.27-5.86-3.54-5.86Z"/></g></svg>
+				<!-- Porcent Sign 3-->
+				<svg data-value="por" id="active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.99 92.39" class="inv-width d-none btn"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g><path class="cls-1 btn" data-value="por" d="M40.13,23.46v-.06C40.13,8.99,32.65,0,20.13,0S0,8.99,0,23.4v.06c0,14.4,7.68,23.4,20.13,23.4s20-9,20-23.4ZM11.57,23.46v-.06c0-8.93,3.14-13.96,8.55-13.96s8.43,5.03,8.43,13.96v.06c0,8.93-2.96,13.96-8.43,13.96s-8.55-5.03-8.55-13.96Z"/><polygon class="cls-1 btn" data-value="por" points="72.58 .82 14.84 91.57 14.85 91.57 27.55 91.57 85.16 .82 72.58 .82"/><path class="cls-1 btn" data-value="por" d="M79.93,45.54c-12.45,0-20.06,8.99-20.06,23.33v.06c0,14.47,7.61,23.46,20.06,23.46s20.06-8.99,20.06-23.46v-.06c0-14.34-7.61-23.33-20.06-23.33ZM88.43,68.99c0,8.93-3.02,13.96-8.49,13.96s-8.55-5.03-8.55-13.96v-.06c0-8.93,3.14-13.96,8.55-13.96s8.49,5.03,8.49,13.96v.06Z"/><path class="cls-1 btn" data-value="por" d="M20.09,17.55c-2.27,0-3.59,2.11-3.59,5.86v.03c0,3.75,1.29,5.86,3.59,5.86s3.54-2.11,3.54-5.86v-.03c0-3.75-1.27-5.86-3.54-5.86Z"/><path class="cls-1 btn" data-value="por" d="M79.41,63.09c-2.27,0-3.59,2.11-3.59,5.86v.03c0,3.75,1.29,5.86,3.59,5.86s3.54-2.11,3.54-5.86v-.03c0-3.75-1.27-5.86-3.54-5.86Z"/></g></svg>
+				
+			</div>
+			<div class="button naranja divide" ontouchstart="" translate="no" data-value="/">÷</div>
+			<div class="button num-7" ontouchstart="" translate="no" data-value="7">7</div>
+			<div class="button num-8" ontouchstart="" translate="no" data-value="8">8</div>
+			<div class="button num-9" ontouchstart="" translate="no" data-value="9">9</div>
+			<div class="button naranja multiplica"ontouchstart="" translate="no" data-value="*">×</div>
+			<div class="button num-4" ontouchstart="" translate="no" data-value="4">4</div>
+			<div class="button num-5" ontouchstart="" translate="no" data-value="5">5</div>
+			<div class="button num-6" ontouchstart="" translate="no" data-value="6">6</div>
+			<div class="button naranja resta" ontouchstart="" translate="no" data-value="-">-</div>
+			<div class="button num-1" ontouchstart="" translate="no" data-value="1">1</div>
+			<div class="button num-2" ontouchstart="" translate="no" data-value="2">2</div>
+			<div class="button num-3" ontouchstart="" translate="no" data-value="3">3</div>
+			<div class="button naranja suma" ontouchstart="" translate="no" data-value="+">+</div>
+			<div class="button num-0"ontouchstart="" translate="no" data-value="0">0</div>
+			<div class="button coma" ontouchstart="" translate="no" data-value=","> ,</div>
+			<div class="button naranja igual" ontouchstart="" translate="no" data-value="=">=</div>
+		</div>
+	</div>
+	<script src="assets/bundle.js"></script>
+</body>
+</html>
